@@ -15,7 +15,7 @@ visited = [0]*(n+1) # 노드 방문 정보 초기화
 # 무방향 그래프 생성
 for i in range(m):
     u, v, weight = map(int, input().strip().split())
-    # 궁금한 부분
+    # 무방향 그래프이므로
     graph[u].append([weight, u, v])
     graph[v].append([weight, v, u])
 
