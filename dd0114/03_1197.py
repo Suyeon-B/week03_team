@@ -1,18 +1,44 @@
-# 키 값 링크값 벨류값 저장 내림차순으로 받기
+# k 방법
+def find_parent(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parent(parent,parent[x])
+    return parent[x]
 
-# 함수
-# 키값의 갯수가
-# 첫번째에서 가장 낮은 값을가진 점을 두번째 점으로 선택
-#  첫번째 점 = start, 두번째는 end
-# 연결된 리스트
+    # if parentp[x] != x
+    #   return find_parent(parent[x])
+    # return x
 
-# start 와 엔드 중 / 최소 간선 선택
-# 왔던 점이 나오면 돌아가기
-# 모든 점들을 지나면 피니시
-# 총 벨류의 합 저장
+def union_parent(parent,a,b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
 
-V = 4
+    if a<b:
+        parent[b] = a
+    else : # a>b
+        parent[a] = b
 
-parent = list(range(V + 1))
+V, E = map(int, input().split())
+parent = [0]*(V+1)
+
+links =[] 
+answer = 0
+
+for i in range(V+1):
+    parent[i] = i
+
+for i in range(E):
+    start, end, cost = map(int, input().split())
+    links.append([cost,start,end])
+# 튜플로 넣고 리스트로 넣고 차이는? a,b가 상수가 아닐때 소팅할수있는 방법은?
+# 상수를 맥이거나 아니면 이름별로 소팅할수있는 방법. 딕셔너리 쓰면 안되는지
+
+links.sort()
+
+for link in links:
+    cost, a, b = link
+    if find_parent(parent,a) != find_parent(parent, b):
+        union_parent(parent,a,b)
+        answer += cost
 
 print(parent)
+print(answer)

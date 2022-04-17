@@ -37,10 +37,10 @@ def postorder(node) :
         postorder(tree[node.right])
     print(node.key, end='')
 
-print(preorder(tree['A']))
+preorder(tree['A'])
 print()
-print(inorder(tree['A']))
+inorder(tree['A'])
 print()
-print(postorder(tree['A']))
+postorder(tree['A'])
 
 # 질문!! none 나오는 이유는??
