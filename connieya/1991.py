@@ -4,7 +4,6 @@ tree = {}
 
 def order(parent , o):
     if parent == '.': return
-
     if o == 0: print(parent,end='') # 전위 순회
     order(tree[parent][0],o) # 왼쪽 자식
     if o == 1: print(parent, end='')  # 중위 순회
