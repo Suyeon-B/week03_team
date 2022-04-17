@@ -1,6 +1,5 @@
-# 73점
-# 시간 복잡도 개선 필요
 import sys
+sys.setrecursionlimit(10**6) # python RecursionError 방지
 sys.stdin = open("DFS/input.txt",'r')
 input = sys.stdin.readline
 path = 0
@@ -11,10 +10,10 @@ def dfs(start_node, visited, graph, is_indoor):
     for v in graph[start_node]:
         if not visited[v]:
             # start_node가 실외일 때, 주변에 있는 실내 노드 v들을 count한다.
-            if is_indoor[0][v-1] == '0':
-                result += dfs(v, visited, graph, is_indoor)
-            else: # start_node가 실내일 때, 주변에 있는 실내 노드 v들을 count한다.
+            if is_indoor[0][v-1] == '1':
                 result += 1
+                continue
+            result += dfs(v, visited, graph, is_indoor)
     return result
 
 def main():
@@ -40,7 +39,7 @@ def main():
             if visited[v]:
                 continue
             temp = dfs(v, visited, graph, is_indoor)
-            path += temp * (temp-1)
+            path += temp * (temp-1) # nC2 조합
         
     print(path)
 
