@@ -1,3 +1,6 @@
+# 숫자를 기준으로 탐색할 필요가 없다고 판단,
+# 연산자를 탐색하는 코드로 재작성함
+
 import itertools
 import sys, collections
 from xmlrpc.client import boolean
