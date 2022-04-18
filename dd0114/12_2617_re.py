@@ -11,26 +11,30 @@ for i in range(m):
     links[a].append(b)
     head[b] = 0
 
-xlist = []
+for i in range(1,n+1):
+    for j in links[i]:
+        #  
+        break
 
-def dfs(x, count):
-    xlist.append(x)
+
+def dfs(x, count, xlist):
+    
+    xlist += str(x)
     # 절반길이 이상이고 끝에 노드라면
     if count >= n//2+1 and links[x]==[]:
         a = count - (n//2)
         for i in range(a): 
-            dab[xlist[i]] = 0
-            dab[xlist[-(i+1)]] = 0
+            dab[int(xlist[i])] = 0
+            dab[int(xlist[-(i+1)])] = 0
 
     for i in links[x]:
-        if dab[i] : 
-            dfs(i,count+1)
-    xlist.pop()
+        # if dab[i] : 
+        dfs(i,count+1,xlist)
 
 xlist = []
 for i in range(1,n+1):
     if head[i] :
-        dfs(i,1)
+        dfs(i,1,"")
 
 ans = 0
 for i in range(1,n+1):
