@@ -27,9 +27,6 @@ while q != [] :
     # for i in visited:
     #     print(i)
     # print()
-    if x==n and y ==n:
-        print(count)
-        exit()
 
     for i in range(4):
         nx,ny = x+dx[i], x+dy[i]
@@ -41,7 +38,10 @@ while q != [] :
                     q.append((nx,ny))
                     visited[ny][nx] = 1
 
-                elif maze[ny][nx] == 0 and sparevist[ny][nx]==0  :                 
+                elif maze[ny][nx] == 0 and sparevist[ny][nx]==0  : 
+                    if nx==n and ny ==n:
+                        print(count)
+                        exit()                
                     spare.append((nx,ny))
                     sparevist[ny][nx] = 1
 

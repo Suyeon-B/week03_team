@@ -21,9 +21,6 @@ count = 0
 
 while q != [] :
     x,y = q.pop(0)
-    # for i in visited:
-    #     print(i)
-    # print()
     
     for i in range(4):
         nx= x+dx[i]
