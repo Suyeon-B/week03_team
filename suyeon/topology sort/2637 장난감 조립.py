@@ -1,4 +1,4 @@
-# 수정 중인 코드입니다.
+# 수정
 import sys
 from collections import deque, defaultdict
 sys.stdin = open("topology sort/input.txt",'r')

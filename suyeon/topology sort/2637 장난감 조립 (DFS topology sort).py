@@ -1,3 +1,4 @@
+# 수정 중인 코드입니다.
 from collections import defaultdict
 import sys
 
