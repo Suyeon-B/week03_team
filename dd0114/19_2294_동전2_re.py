@@ -20,7 +20,7 @@ q2 = []
 answer = -1
 save_cost = inf
 
-q.sort()
+q.sort(reverse=True)
 coin.sort()
 coin2.sort()
 
@@ -30,8 +30,6 @@ while q :
     for i in coin2 :
         next_coin = c+i 
         new_cost = cost[c]+cost[i] 
-        
-        print
 
         if next_coin == k :
             answer = 0
